@@ -33,7 +33,7 @@ export default function Dashboard() {
                                     <div className="dashboard-card-custom">
                                         <div className="dashboard-card-body-custom">
                                             <h5 className="dashboard-card-title-custom text-light">Fees Collection</h5>
-                                            <p className="dashboard-card-text-custom">Track and manage student fee payments .</p>
+                                            <p className="dashboard-card-text-custom mr-4">Track and manage student fee payments .</p> <br />
                                             <Link className="dashboard-card-button-custom" to="/payfees">Pay Fees</Link>
                                         </div>
                                     </div>

@@ -24,6 +24,28 @@ const Invoice = () => {
     }
   };
 
+
+  const downloadPDFHandler = async () => {
+    try {
+      const response = await axiosInstance.get(`fee/download-invoice/?invoice_uuid=${uuid}`, {
+        responseType: 'blob',
+      });
+  
+      const blob = new Blob([response.data], { type: 'application/pdf' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `invoice - ${client.email}.pdf`;  // Specify the default file name for download
+  
+      link.click();
+      
+      URL.revokeObjectURL(link.href);
+  
+    } catch (error) {
+      console.error('Error fetching invoice:', error);
+    }
+  };
+  
+
   useEffect(() => {
     getInvoice();
   }, []);
@@ -36,7 +58,7 @@ const Invoice = () => {
     <div className="custom-invoice-container">
       <Navbar />
       <div className="custom-invoice-card ">
-      <div className="btn btn-warning mb-3">Download</div>
+      <div className="btn btn-warning mb-3" onClick={downloadPDFHandler}>Download</div>
 
         <div className="row">
           <div className="col-lg-4">
@@ -49,7 +71,7 @@ const Invoice = () => {
             <h1 className='text-center'>Invoice</h1>
           </div>
           <div className="col-lg-4">
-            <div className='invoice-logo ml-5'>
+            <div className='invoice-logo' style={{paddingLeft:'40px'}}>
               <img src="/path-to-logo.png" alt="Company Logo" className="company-logo" />
               <p><strong>Company Name</strong></p></div>
           </div>
@@ -70,7 +92,7 @@ const Invoice = () => {
             </div>
           </div>
           <div className="header-right mt-2">
-            <div className="row" style={{ width: '400px', marginLeft: '50px' }}>
+            <div className="row" style={{ width: '340px', marginLeft: '50px' }}>
               <div className="col">
                 <p className='rm-defaults'><strong>Invoice No:</strong> </p>
                 <p className='rm-defaults'><strong>Invoice Date:</strong></p>

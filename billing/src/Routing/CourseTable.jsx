@@ -48,7 +48,7 @@ const CourseTable = () => {
                 setSuccessMessage('Course updated successfully!');
             } else {
                 await axiosInstance.post('/fee/create-a-course/', newCourse);
-                setSuccessMessage('Course added successfully!');
+                setSuccessMessage('Domain added successfully!');
             }
             fetchCourses();
             setShowModal(false);
@@ -78,13 +78,13 @@ const CourseTable = () => {
         <div className="courseTable-container font-style">
             <Navbar />
             <div className="courseTable-header">
-                <h1 className="courseTable-title">Course List</h1>
+                <h1 className="courseTable-title">Domain List</h1>
                 <button className="courseTable-addButton" onClick={() => {
                     setIsUpdating(false);
                     setShowModal(true);
                     setNewCourse({ course_name: '', course_duration: '', course_description: '', course_type: '' });
                 }}>
-                    Add Course
+                    Add Domain
                 </button>
             </div>
 
@@ -100,7 +100,7 @@ const CourseTable = () => {
                         <th>Course ID</th>
                         <th>Domain Name</th>
                         <th>Duration</th>
-                        <th>Course Type</th>
+                        <th>Type</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -157,12 +157,14 @@ const CourseTable = () => {
                             </label>
                             <label>
                                 Domain Description:
-                                <input
-                                    type="text"
+                                <textarea
+                                    type="textarea"
                                     name="course_description"
                                     value={newCourse.course_description}
                                     onChange={handleInputChange}
                                     required
+                                    rows="4"
+                                    cols="50" 
                                     className="courseTable-input"
                                 />
                             </label>
@@ -182,7 +184,7 @@ const CourseTable = () => {
                                 </select>
                             </label>
                             <button type="submit" className="courseTable-submitButton">
-                                {isUpdating ? 'Update Course' : 'Add Course'}
+                                {isUpdating ? 'Update Domain' : 'Add Domain'}
                             </button>
                         </form>
                     </div>

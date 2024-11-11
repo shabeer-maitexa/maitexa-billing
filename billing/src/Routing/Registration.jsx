@@ -140,7 +140,7 @@ const RegisterForm = () => {
                         </label>
 
                         <label>
-                            <span>Parent Number</span>
+                            <span>Contact Number</span>
 
                             <input
                                 className="input"

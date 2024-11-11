@@ -5,6 +5,7 @@ import axiosInstance from '../Axios';
 import Navbar from '../Components/Navbar';
 import { useNavigate } from 'react-router-dom';
 
+
 const PayFee = () => {
     const [usersData, setUsersData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
@@ -15,6 +16,9 @@ const PayFee = () => {
     const [isNewPayment, setIsNewPayment] = useState(null);
 
     const navigate = useNavigate()
+
+
+    // useEffect
     useEffect(() => {
         // Fetch data from API
         axiosInstance.get(`/fee/list-coursefees/?${queryParams}`)
@@ -27,10 +31,10 @@ const PayFee = () => {
                 console.error('Error fetching data', error);
             });
         getCourses()
-
     }, [courseFilter, statusFilter, emailFilter, isNewPayment]);
 
 
+    // create dynamic query
     let queryParams = '';
     if (statusFilter) {
         queryParams += `payment_completed=${statusFilter}`;
@@ -38,7 +42,6 @@ const PayFee = () => {
     if (courseFilter) {
         queryParams += (queryParams ? '&' : '') + `course_uuid=${courseFilter}`;
     }
-
     if (emailFilter) {
         queryParams += (queryParams ? '&' : '') + `email=${emailFilter}`;
     }
@@ -46,6 +49,7 @@ const PayFee = () => {
         queryParams += (queryParams ? '&' : '') + `is_new_user=${isNewPayment}`;
     }
 
+    // fetch courses from backend
     const getCourses = async () => {
         try {
             const response = await axiosInstance.get('/fee/list-courses/')
@@ -56,6 +60,7 @@ const PayFee = () => {
     }
 
 
+    // function for handling pay fee
     const handlePayEMI = (uuid, IsNewUser) => {
         if (IsNewUser) {
             navigate(`/payfeesform/${uuid}`)
@@ -65,11 +70,10 @@ const PayFee = () => {
     };
 
 
+    // details button function
     const clickDetailsHandle = (uuid) => {
         navigate(`/invoiceDetails/${uuid}`)
     };
-
-
 
 
     return (
@@ -119,6 +123,7 @@ const PayFee = () => {
                 </select>
             </div>
 
+
             {/* Table Section */}
             <table className="table table-striped">
                 <thead>
@@ -129,6 +134,7 @@ const PayFee = () => {
                         {!isNewPayment ? <th>Payment Status</th> : ''}
                         {!isNewPayment ? <th>Domain fee</th> : ''}
                         {!isNewPayment ? <th>Fee With Discount</th> : ''}
+                        {!isNewPayment ? <th>Fee With Gst(18%)</th> : ''}
                         {!isNewPayment ? <th>Paid Fees</th> : ''}
                         {!isNewPayment ? <th>Balance Due</th> : ''}
                         {!isNewPayment ? <th>Payment Details</th> : ''}
@@ -145,8 +151,9 @@ const PayFee = () => {
                             {!isNewPayment ? <td>{user.domain_fee}</td>
                                 : ''}
                             {!isNewPayment ? <td>{user.amount_with_discount}</td> : ''}
+                            {!isNewPayment ? <td>{user.amount_with_gst}</td> : ''}
                             {!isNewPayment ? <td>{user.paid_amount}</td> : ''}
-                            {!isNewPayment ? <td>{user.amount_with_discount - user.paid_amount}</td> : ''}
+                            {!isNewPayment ? <td>{user.balance}</td> : ''}
 
 
                             {!isNewPayment ? <td>
@@ -158,10 +165,6 @@ const PayFee = () => {
                                     {!user.is_new_payment ? 'Details' : 'No Details'}
                                 </button>
                             </td> : ''}
-
-
-
-
 
 
                             <td>

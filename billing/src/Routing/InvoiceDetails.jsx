@@ -57,8 +57,8 @@ const InvoiceDetails = () => {
                     <tr>
                         <th>Invoice ID</th>
                         <th>Date</th>
-                        <th>Total Amount</th>
                         <th>Amount Paid</th>
+                        <th>Installment </th>
                         <th>Payment Status</th>
                         <th>Mode Of Payment</th>
                     </tr>
@@ -67,10 +67,10 @@ const InvoiceDetails = () => {
                     {invoices.map((invoice) => (
                         <tr key={invoice.id} className="invoiceDetails-row">
                             <td>{invoice.id}</td>
-                            <td>{formatISTDate(invoice.invoice_date)}</td>
-                            <td>₹{invoice.total_amount}</td>
-                            <td>₹{invoice.paid_amount}</td>
-                            <td className={invoice.payment_status == 'Paid' ? 'bg-success text-light' : 'bg-warning'}>{invoice.payment_status == 'Paid' ? 'Completed' : 'Pending Balance'}</td>
+                            <td>{new Date(invoice.invoice_date).toLocaleString()}</td>
+                            <td>₹{invoice.current_paid_amount_with_gst}</td>
+                            <td>{invoice.installment_count}</td>
+                            <td className={invoice.course.amount_with_gst <= invoice.course.paid_amount? 'bg-success text-light' : 'bg-warning'}>{invoice.course.amount_with_gst <= invoice.course.paid_amount ? 'Completed' : 'Pending Balance'}</td>
                             <td>{invoice.mode_of_payment}</td>
 
                         </tr>

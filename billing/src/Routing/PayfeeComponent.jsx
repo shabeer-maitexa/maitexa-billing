@@ -159,7 +159,7 @@ const PayFeeComponent = () => {
                     <div className="col">
                         <div className="col">
                             <label className="bill-label">
-                                <span>Amount to pay now:</span>
+                                <span>Fee to pay now:</span>
                                 <input
                                     className="bill-input"
                                     type="text"

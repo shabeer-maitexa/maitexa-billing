@@ -1,0 +1,81 @@
+
+.invoice-logo{
+    margin-left: 60px;
+}
+
+.rm-defaults{
+    padding: 0;
+    margin: 0;
+}
+
+.custom-invoice-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .custom-invoice-card {
+    border: 1px solid #ccc;
+    padding: 80px;
+    background-color: #fff;
+    margin: 20px auto;
+    width: 1240px;
+  }
+  
+  .custom-invoice-header,
+  .custom-billing-info,
+  .custom-table-section,
+  .custom-important-notes,
+  .custom-invoice-footer {
+    margin-bottom: 20px;
+  }
+  
+  .custom-invoice-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .header-left {
+    max-width: 50%;
+  }
+  
+  .header-right {
+    text-align: right;
+    max-width: 50%;
+  }
+  
+  .custom-billing-info {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+  }
+  
+  .custom-invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    
+  }
+  
+  .custom-invoice-table th,
+  .custom-invoice-table td {
+    border: 2px solid #343131;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .custom-invoice-table th {
+    background-color: #f9f9f9;
+  }
+  
+  .custom-important-notes ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .custom-invoice-footer {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+
+  .invoice-company-address{
+    font-size: smaller;
+  }

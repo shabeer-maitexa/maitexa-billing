@@ -1,0 +1,129 @@
+/* Filter Styles */
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+}
+body{
+    background-color: #f9e4bc;
+}
+.filter-input,
+.filter-select {
+    padding: 8px;
+    margin: 0 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: #0056b3;
+}
+.table{
+    min-height: 500px;
+    min-width: 1400px;
+    
+}
+
+/* Table Styles */
+.table th,
+.table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #0056b3;
+    color: white;
+    text-transform: uppercase;
+}
+
+.table .paid {
+    background-color: #e0ffe0;
+}
+
+.table .unpaid {
+    background-color: #ffe0e0;
+}
+
+.pay-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pay-btn:hover {
+    opacity: 0.9;
+}
+
+.pay-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pay-btn-unpaid {
+    background-color: #007bff;
+    color: white;
+}
+
+.pay-btn-unpaid:hover {
+    background-color: #0056b3;
+}
+
+.pay-fee-container{
+    width: 70%;
+    margin-left: 300px;
+}
+
+
+/* toggle */
+/* Custom CSS for the toggle component */
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+}
+
+.toggle-option {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-new-user {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-existing-user {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.toggle-option:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.btn-existing-user:hover {
+    background-color: #138496;
+}

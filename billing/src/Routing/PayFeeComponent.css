@@ -1,0 +1,102 @@
+.bill-form {
+    width: 700px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+
+.bill-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.bill-header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.bill-section {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.bill-section p {
+    margin: 0.5rem 0;
+    font-size: 15px;
+    color: #555;
+    font-weight: 500;
+}
+
+.bill-label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.bill-input, .bill-select {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 0.4rem;
+    font-size: 15px;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.bill-input:focus, .bill-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+.bill-submit {
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 1.5rem;
+}
+
+.bill-submit:hover {
+    background: linear-gradient(90deg, #0056b3, #007bff);
+}
+
+.bill-section {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+    .bill-form {
+        padding: 1.5rem;
+    }
+
+    .bill-header h1 {
+        font-size: 24px;
+    }
+
+    .bill-section p {
+        font-size: 14px;
+    }
+
+    .bill-input, .bill-select {
+        font-size: 14px;
+    }
+}

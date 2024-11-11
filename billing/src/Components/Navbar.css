@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+.font-style {
+    font-family: "Roboto", serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* Navbar.css */
+.sidebar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transition: width 0.3s ease;
+    z-index: 1000;
+    /* Ensure it stays on top */
+}
+
+.sidebar-container.expanded {
+    width: 250px;
+}
+
+.sidebar-container.collapsed {
+    width: 70px;
+}
+
+.navbar {
+    height: 100vh;
+    overflow: hidden;
+    /* Prevents scrollbar issues */
+    background-color: #a5bbd1;
+    /* Dark background */
+}
+
+.toggle-btn {
+    margin: 10px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.sidebar-links {
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-links.show {
+    opacity: 1;
+}
+
+.sidebar-links.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.main-content {
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.collapsed {
+    margin-left: 60px;
+}
+
+.navbar {
+    padding-bottom: 500px;
+}
